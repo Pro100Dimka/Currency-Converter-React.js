@@ -1,5 +1,4 @@
-import CurrencyConverter from './pages';
-import './styles/App.css';
+import { CurrencyConverter } from './pages';
 
 export default function App() {
   return <CurrencyConverter />;

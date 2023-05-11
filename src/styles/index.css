@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 body {
+  background-image: url("../../public/img/currencyMain.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -47,7 +50,10 @@ code {
   background-color: #16b67f;
   color: #fff;
 }
-
+.svg-icon:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+}
 .currencies li:last-of-type {
   display: inline-flex;
   align-items: center;

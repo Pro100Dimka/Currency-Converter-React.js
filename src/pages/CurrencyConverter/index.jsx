@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Grid } from '@mui/material';
 import ApiService from '../../components/api-helper';
 import ConverterBlock from './CurrencyFrom';
 
@@ -22,7 +23,7 @@ export default function CurrencyConverter() {
     if (rates[fromCurrency]?.rate && rates[toCurrency]?.rate) {
       const price = value / rates[fromCurrency].rate;
       const result = price * rates[toCurrency].rate;
-      setToPrice(result);
+      setToPrice(result.toFixed(2));
       setFromPrice(value);
     }
   };
@@ -30,7 +31,7 @@ export default function CurrencyConverter() {
     if (rates[fromCurrency]?.rate && rates[toCurrency].rate) {
       const result =
         (rates[fromCurrency]?.rate / rates[toCurrency].rate) * value;
-      setFromPrice(result);
+      setFromPrice(result.toFixed(2));
       setToPrice(value);
     }
   };
@@ -51,18 +52,26 @@ export default function CurrencyConverter() {
         gap: '30px',
       }}
     >
-      <ConverterBlock
-        value={fromPrice}
-        currency={fromCurrency}
-        onChangeCurrency={(cur) => setFromCurrency(cur)}
-        onChangeValue={onChangeFromPrice}
-      />
-      <ConverterBlock
-        value={toPrice}
-        currency={toCurrency}
-        onChangeCurrency={(cur) => setToCurrency(cur)}
-        onChangeValue={onChangeToPrice}
-      />
+      <Grid container spacing={2}>
+        <Grid item md={6}>
+          <ConverterBlock
+            rates={rates}
+            value={fromPrice}
+            currency={fromCurrency}
+            onChangeCurrency={(cur) => setFromCurrency(cur)}
+            onChangeValue={onChangeFromPrice}
+          />
+        </Grid>
+        <Grid item md={6}>
+          <ConverterBlock
+            rates={rates}
+            value={toPrice}
+            currency={toCurrency}
+            onChangeCurrency={(cur) => setToCurrency(cur)}
+            onChangeValue={onChangeToPrice}
+          />
+        </Grid>
+      </Grid>
     </div>
   );
 }

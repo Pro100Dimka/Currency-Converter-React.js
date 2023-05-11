@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Grid } from '@mui/material';
 import ApiService from '../../components/api-helper';
-import ConverterBlock from './CurrencyFrom';
+import ConverterBlock from './ConverterBlock';
 
 export default function CurrencyConverter() {
   const apiCurrency = new ApiService(
